@@ -12,16 +12,17 @@
 
         div.heading {
             width: 49%;
-            display: inline-block;
+            display: inline-block;            
         }
 
         div.heading .label {
             width: auto;
+            font-size: 2em;
             display: inline-block;
         }
 
         div.heading .underline {
-            width: 75%;
+            width: 70%;
             display: inline-block;
             border-bottom: 2px solid black;
         }
@@ -78,7 +79,7 @@
             var left = randomInteger(0, 9);
             var right = randomInteger(0, 9);
 
-            $(this).append('<div class="problem">'+left+' + '+right+ '= _____</div>')
+            $(this).append('<div class="problem">'+left+' + '+right+ ' =  _____</div>')
         }
 
         function appendProblem() {
