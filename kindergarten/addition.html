@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js" ></script>
+    <style type="text/css">
+
+        div.block {
+            margin: .5in;
+        }
+
+        div.heading {
+            width: 49%;
+            display: inline-block;
+        }
+
+        div.heading .label {
+            width: auto;
+            display: inline-block;
+        }
+
+        div.heading .underline {
+            width: 75%;
+            display: inline-block;
+            border-bottom: 2px solid black;
+        }
+
+        .problem {
+            font-size: 3em;
+            padding: 15px 0;
+            margin-top: 1em;
+            /*background-color: aliceblue;*/
+        }
+
+        div.problem .answer {
+            display: inline-block;
+            width: 50px;
+            background-color: blue;
+            border-bottom: 2px solid black;
+        }
+    </style>
+
+    <title></title>
+</head>
+<body>
+<div class="block">
+    <div class="heading">
+        <div class="label">Name:</div>
+        <div class="underline"></div>
+    </div>
+    <div class="heading">
+        <div class="label">Date:</div>
+        <div class="underline"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm problem-set">
+        </div>
+        <div class="col-sm problem-set">
+        </div>
+        <div class="col-sm problem-set">
+
+        </div>
+
+    </div>
+</div>
+<script>
+
+
+    function randomInteger(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    (function($){
+        function generateProblem() {
+            var left = randomInteger(0, 9);
+            var right = randomInteger(0, 9);
+
+            $(this).append('<div class="problem">'+left+' + '+right+ '= _____</div>')
+        }
+
+        function appendProblem() {
+            $('.problem-set').each(generateProblem);
+        }
+
+        $(document).ready(function () {
+            _.times(7,appendProblem);
+        });
+    })(jQuery)
+</script>
+</body>
+</html>
